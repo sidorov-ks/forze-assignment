@@ -68,14 +68,14 @@ if (MSVC)
   endif ()
 else ()
   target_compile_options(bayan PRIVATE
-    -Wall -Wextra -pedantic -Werror
+    -Wall -Wextra -pedantic -Werror -Wno-deprecated-declarations
     )
   target_compile_options(libbayan PRIVATE
-    -Wall -Wextra -pedantic -Werror
+    -Wall -Wextra -pedantic -Werror -Wno-deprecated-declarations
     )
   if (WITH_GTEST)
     target_compile_options(test_bayan PRIVATE
-      -Wall -Wextra -pedantic -Werror
+      -Wall -Wextra -pedantic -Werror -Wno-deprecated-declarations
       )
   endif ()
 endif ()

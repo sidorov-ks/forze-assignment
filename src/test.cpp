@@ -46,11 +46,11 @@ TEST(GlobRegexTest, test_dot) {
 
 namespace fs = boost::filesystem;
 
-// Создаёт следующие файлы (одна строка = одинаковое содержимое):
+// Create the following files and fills them such that files on the same line share the same content:
 // ./A.txt ./B.txt ./src/a.py ./src/b.py
 // ./.gitignore ./docs/README.md
 // ./C.txt
-// Все файлы (даже различающиеся) совпадают в первых 2048 символах
+// All files without exception start from the same 2048 characters
 class FilesystemTest : public ::testing::Test {
 protected:
   FilesystemTest() : _root_dir(fs::temp_directory_path() / fs::unique_path()),

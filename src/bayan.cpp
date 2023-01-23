@@ -18,10 +18,11 @@ namespace po = boost::program_options;
 namespace fs = boost::filesystem;
 
 // Собирает регулярное выражение из маски. Преобразование к синтаксису регулярных выражений:
-// - Точки в строке экранируются: . -> \.
-// - Символ * транслируется как "любое количество любых символов": * -> .*
-// - Символ ? транслируется как "любой символ": ? -> .
-// - Строка обрамляется символами ^ и $ (начало и окончание строки)
+// Building a regex by the input mask. Transformation rules:
+// - All dots are escaped: . -> \.
+// - * is treated as "any number of any characters": * -> .*
+// - ? is treated as "any character": ? -> .
+// - The string is "sandwiched" between ^ и $.
 std::regex make_regex(const std::string &glob) {
   std::string mask = std::regex_replace(glob, std::regex{"\\."}, "\\.");
   mask = std::regex_replace(mask, std::regex{"\\*"}, ".*");

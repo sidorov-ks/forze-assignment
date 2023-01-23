@@ -3,7 +3,7 @@ name: 'C++ Debian CI'
 on:
   push:
     branches:
-      - hw-08-bayan
+      - main
 
 jobs:
   build:
